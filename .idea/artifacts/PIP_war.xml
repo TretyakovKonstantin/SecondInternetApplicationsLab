@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PIP:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="mysecondlab.war">
+      <element id="artifact" artifact-name="PIP:war exploded" />
+    </root>
+  </artifact>
+</component>
