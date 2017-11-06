@@ -14,14 +14,18 @@ import java.util.*;
 public class AreaCheckServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        boolean isControllerPass = true;
         try {
             double x = Double.parseDouble(request.getParameter("x").replaceAll(",", "."));
             double y = Double.parseDouble(request.getParameter("y"));
-            if (Double.isNaN(x) || Double.isNaN(y)) {
-                throw new Exception();
+            double r = Double.parseDouble(request.getParameter("r"));
+            if (Double.isNaN(x) || Double.isNaN(y) || Double.isNaN(r)) {
+                throw new NumberFormatException();
             }
-            if (request.getRequestURL().toString().contains("check")){
-                request.getRequestDispatcher("controller").forward(request, response);
+            if (request.getAttribute("Sofy") == null){
+                isControllerPass = false;
+                response.sendRedirect("index.jsp");
+                return;
             }
         } catch (Exception e) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -83,7 +87,9 @@ public class AreaCheckServlet extends HttpServlet {
         }
         records.add(record);
         getServletContext().setAttribute("record", records);
+        if (isControllerPass){
+            request.getRequestDispatcher("check.jsp").forward(request, response);
+        }
 
-        request.getRequestDispatcher("check.jsp").forward(request, response);
     }
 }

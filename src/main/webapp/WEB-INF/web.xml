@@ -12,6 +12,16 @@
     </jsp-config>
 
     <servlet>
+        <servlet-name>check.jsp</servlet-name>
+        <jsp-file>check.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>check.jsp</servlet-name>
+        <url-pattern>/check.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>controller.ControllerServlet</servlet-class>
     </servlet>

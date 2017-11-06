@@ -15,6 +15,12 @@ window.addEventListener("load",
             sendValues(x, y, radius);
         });
         let rButtons = Array.from(document.getElementsByName("r-butt"));
+        let submitBtn = document.getElementById("submit");
+        submitBtn.onmouseover= function () {
+            submitBtn.style.position = "absolute";
+            submitBtn.style.top = Math.random()*800;
+            submitBtn.style.left = Math.random()*800;
+        }
         for (let button of rButtons) {
             button.onclick = function () {
                 form.r.value = button.value;

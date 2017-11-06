@@ -62,7 +62,7 @@
           </label>
           <input type="text" name="y" id="y" placeholder="-5 … 3">
         </div>
-        <input id="submit" type="submit" class="submit" value="Проверить">
+        <input id="submit" name="submit" type="submit" class="submit" value="Проверить">
       </form>
     </td>
 
